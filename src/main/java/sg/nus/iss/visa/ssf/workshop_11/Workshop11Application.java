@@ -41,18 +41,20 @@ public class Workshop11Application {
 				portNumber = DEFAULT_PORT;
 			}
 			
-			else {
-				//pass port number from CLI
-				portNumber = opsValues.get(0).toString();
-			}
+		else {
+			//pass port number from CLI
+			portNumber = opsValues.get(0).toString();
+		}
 
-			if (portNumber != null) {
-				//set port number in the spring boot config
-				app.setDefaultProperties(Collections.singletonMap("server.port", portNumber));
-			}
+		if (portNumber != null) {
+			//set port number in the spring boot config
+			app.setDefaultProperties(Collections.singletonMap("server.port", portNumber));
+		}
 
-			//run Springboot app
-			app.run(args);
+		logger.info("Port number is : " +portNumber);
+
+		//run Springboot app
+		app.run(args);
 		}
 	}
 }
